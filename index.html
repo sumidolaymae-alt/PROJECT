@@ -1,0 +1,2191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Campus Leadership | ITPE3</title>
+
+    <style>
+
+        /* =====================================================
+           COLOR SYSTEM
+        ===================================================== */
+
+        :root {
+            --navy: #101b35;
+            --navy-light: #1d2d4d;
+            --navy-dark: #080f20;
+
+            --gold: #d6a84f;
+            --gold-light: #f1d28a;
+
+            --cream: #f7f5ef;
+            --white: #ffffff;
+
+            --text: #303746;
+            --gray: #777f8c;
+            --border: #e3dfd5;
+
+            --shadow:
+                0 15px 35px rgba(16, 27, 53, 0.15);
+
+            --shadow-heavy:
+                0 25px 50px rgba(16, 27, 53, 0.25);
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        header {
+            min-height: 90vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(214, 168, 79, 0.18),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(48, 77, 120, 0.45),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080f20,
+                    #14213d 50%,
+                    #1d2d4d
+                );
+
+            color: white;
+
+            position: relative;
+            overflow: hidden;
+
+            perspective: 1000px;
+        }
+
+
+        header::before {
+            content: "";
+
+            position: absolute;
+
+            width: 380px;
+            height: 380px;
+
+            right: -130px;
+            top: -100px;
+
+            border-radius: 50%;
+
+            border: 2px solid rgba(214, 168, 79, 0.25);
+
+            box-shadow:
+                0 0 50px rgba(214, 168, 79, 0.08),
+                inset 0 0 50px rgba(214, 168, 79, 0.05);
+
+            transform:
+                rotateX(55deg)
+                rotateY(20deg);
+
+            animation: floatingCircle 8s ease-in-out infinite;
+        }
+
+
+        header::after {
+            content: "";
+
+            position: absolute;
+
+            width: 190px;
+            height: 190px;
+
+            left: -70px;
+            bottom: -50px;
+
+            border-radius: 50%;
+
+            background: rgba(214, 168, 79, 0.08);
+
+            border: 1px solid rgba(214, 168, 79, 0.3);
+
+            box-shadow:
+                20px 20px 50px rgba(0, 0, 0, 0.25);
+
+            transform: rotateY(45deg);
+
+            animation: floatingCircle2 7s ease-in-out infinite;
+        }
+
+
+        @keyframes floatingCircle {
+
+            0%,
+            100% {
+                transform:
+                    rotateX(55deg)
+                    rotateY(20deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    rotateX(55deg)
+                    rotateY(20deg)
+                    translateY(20px);
+            }
+        }
+
+
+        @keyframes floatingCircle2 {
+
+            0%,
+            100% {
+                transform:
+                    rotateY(45deg)
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    rotateY(45deg)
+                    translateY(-15px);
+            }
+        }
+
+
+        .hero {
+            max-width: 850px;
+
+            padding: 40px 20px;
+
+            position: relative;
+            z-index: 2;
+
+            transform: translateZ(40px);
+
+            animation: heroAppear 1s ease;
+        }
+
+
+        @keyframes heroAppear {
+
+            from {
+                opacity: 0;
+
+                transform:
+                    translateZ(40px)
+                    translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform:
+                    translateZ(40px)
+                    translateY(0);
+            }
+        }
+
+
+        .hero-small {
+            color: var(--gold-light);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(45px, 7vw, 78px);
+
+            line-height: 1.05;
+
+            margin-bottom: 25px;
+
+            text-shadow:
+                0 5px 0 rgba(0, 0, 0, 0.15),
+                0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .hero h1 span {
+            color: var(--gold);
+
+            text-shadow:
+                0 3px 0 #9e762b,
+                0 10px 25px rgba(214, 168, 79, 0.25);
+        }
+
+
+        .hero p {
+            max-width: 650px;
+
+            margin: auto;
+
+            color: #d4d9e3;
+
+            font-size: 16px;
+        }
+
+
+        /* =====================================================
+           HERO BUTTON
+        ===================================================== */
+
+        .hero-button {
+            display: inline-block;
+
+            margin-top: 32px;
+
+            padding: 14px 25px;
+
+            color: var(--navy);
+
+            background: var(--gold);
+
+            font-weight: bold;
+
+            border-radius: 4px;
+
+            box-shadow:
+                0 6px 0 #9f782e,
+                0 15px 25px rgba(0, 0, 0, 0.25);
+
+            transition: 0.25s ease;
+        }
+
+
+        .hero-button:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                0 11px 0 #9f782e,
+                0 22px 35px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .hero-button:active {
+            transform: translateY(2px);
+
+            box-shadow:
+                0 3px 0 #9f782e,
+                0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        nav {
+            background: rgba(255, 255, 255, 0.97);
+
+            border-bottom: 1px solid var(--border);
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 100;
+
+            box-shadow:
+                0 5px 20px rgba(16, 27, 53, 0.08);
+        }
+
+
+        .nav-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 18px 20px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+        }
+
+
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-weight: bold;
+
+            color: var(--navy);
+
+            text-shadow:
+                1px 2px 0 #ddd;
+        }
+
+
+        .logo span {
+            color: var(--gold);
+        }
+
+
+        nav ul {
+            list-style: none;
+
+            display: flex;
+
+            gap: 25px;
+        }
+
+
+        nav a {
+            font-size: 13px;
+
+            font-weight: bold;
+
+            color: #555;
+
+            transition: 0.3s;
+
+            position: relative;
+        }
+
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 2px;
+
+            background: var(--gold);
+
+            transition: 0.3s;
+        }
+
+
+        nav a:hover {
+            color: var(--gold);
+
+            text-shadow:
+                0 3px 8px rgba(214, 168, 79, 0.3);
+        }
+
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+
+        section {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 80px 20px;
+        }
+
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+
+        .section-number {
+            color: var(--gold);
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+        }
+
+
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: var(--navy);
+
+            font-size: 42px;
+
+            margin: 6px 0 12px;
+
+            text-shadow:
+                0 2px 0 #ddd,
+                0 5px 10px rgba(16, 27, 53, 0.08);
+        }
+
+
+        .section-description {
+            max-width: 650px;
+
+            color: var(--gray);
+        }
+
+
+        /* =====================================================
+           PRESIDENT
+        ===================================================== */
+
+        .president-section {
+            max-width: none;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f7f5ef
+                );
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .president {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 350px 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+            perspective: 1000px;
+        }
+
+
+        .president-photo {
+            position: relative;
+
+            transform-style: preserve-3d;
+
+            transition: 0.4s ease;
+        }
+
+
+        .president-photo:hover {
+            transform:
+                rotateY(-5deg)
+                rotateX(3deg)
+                translateY(-8px);
+        }
+
+
+        .president-photo img {
+            height: 450px;
+
+            object-fit: cover;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 20px 30px rgba(16, 27, 53, 0.2),
+                15px 20px 0 var(--gold);
+        }
+
+
+        .president-photo::after {
+            content: "";
+
+            position: absolute;
+
+            left: 15px;
+            top: 15px;
+
+            width: 100%;
+            height: 100%;
+
+            border: 2px solid var(--navy);
+
+            border-radius: 8px;
+
+            z-index: -1;
+
+            transform: translateZ(-15px);
+        }
+
+
+        .president-label {
+            color: var(--gold);
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        .president-name {
+            font-family: Georgia, "Times New Roman", serif;
+
+            color: var(--navy);
+
+            font-size: 48px;
+
+            margin: 10px 0;
+
+            text-shadow:
+                2px 3px 0 #ddd,
+                0 8px 15px rgba(16, 27, 53, 0.12);
+        }
+
+
+        .president-title {
+            color: var(--gray);
+
+            font-size: 17px;
+        }
+
+
+        .gold-line {
+            width: 65px;
+
+            height: 4px;
+
+            background: var(--gold);
+
+            margin: 20px 0;
+
+            box-shadow:
+                0 4px 0 #a77d2d,
+                0 7px 10px rgba(214, 168, 79, 0.25);
+        }
+
+
+        .president-message {
+            max-width: 550px;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 18px;
+
+            font-style: italic;
+
+            color: #666;
+        }
+
+
+        /* =====================================================
+           CAMPUS ADMINISTRATION
+        ===================================================== */
+
+        .administration-section {
+            background: var(--cream);
+        }
+
+
+        .admin-grid {
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 30px;
+
+            perspective: 1000px;
+        }
+
+
+        .admin-card {
+            background: white;
+
+            border: 1px solid var(--border);
+
+            display: flex;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+            position: relative;
+
+            box-shadow:
+                0 8px 0 #ddd8cc,
+                0 15px 30px rgba(16, 27, 53, 0.1);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+
+            transform-style: preserve-3d;
+        }
+
+
+        .admin-card:hover {
+            transform:
+                translateY(-10px)
+                rotateX(3deg)
+                rotateY(-2deg);
+
+            box-shadow:
+                0 14px 0 #c8c1b2,
+                0 25px 45px rgba(16, 27, 53, 0.2);
+        }
+
+
+        .admin-card img {
+            width: 180px;
+
+            height: 200px;
+
+            object-fit: cover;
+
+            transition: 0.4s;
+        }
+
+
+        .admin-card:hover img {
+            transform: scale(1.05);
+        }
+
+
+        .admin-info {
+            padding: 30px;
+        }
+
+
+        .admin-role {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+
+            text-transform: uppercase;
+        }
+
+
+        .admin-name {
+            color: var(--navy);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 26px;
+
+            margin: 8px 0;
+        }
+
+
+        .admin-title {
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           ADMINISTRATIVE OFFICER
+        ===================================================== */
+
+        .officer-section {
+            background: white;
+
+            max-width: none;
+        }
+
+
+        .officer-content {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .officer-grid {
+            display: grid;
+
+            grid-template-columns: 1fr;
+
+            gap: 30px;
+        }
+
+
+        .officer-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #ffffff,
+                    #f7f5ef
+                );
+
+            border: 1px solid var(--border);
+
+            display: flex;
+
+            align-items: center;
+
+            overflow: hidden;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 8px 0 #ddd8cc,
+                0 15px 30px rgba(16, 27, 53, 0.1);
+
+            transition:
+                transform 0.35s ease,
+                box-shadow 0.35s ease;
+        }
+
+
+        .officer-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow:
+                0 14px 0 #c8c1b2,
+                0 25px 45px rgba(16, 27, 53, 0.2);
+        }
+
+
+        .officer-card img {
+            width: 180px;
+
+            height: 200px;
+
+            object-fit: cover;
+
+            transition: 0.4s ease;
+        }
+
+
+        .officer-card:hover img {
+            transform: scale(1.05);
+        }
+
+
+        .officer-info {
+            padding: 30px;
+        }
+
+
+        .officer-role {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .officer-name {
+            color: var(--navy);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 26px;
+
+            margin: 8px 0;
+        }
+
+
+        .officer-title {
+            color: var(--gray);
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           DEANS
+        ===================================================== */
+
+        .deans-section {
+            max-width: none;
+
+            background: white;
+        }
+
+
+        .deans-content {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .dean-list {
+            border-top: 1px solid var(--border);
+        }
+
+
+        .dean {
+            display: grid;
+
+            grid-template-columns: 50px 130px 1fr;
+
+            gap: 25px;
+
+            align-items: center;
+
+            padding: 28px 20px;
+
+            border-bottom: 1px solid var(--border);
+
+            transition: 0.35s ease;
+
+            perspective: 800px;
+        }
+
+
+        .dean:hover {
+            background: #faf8f2;
+
+            transform:
+                translateX(8px)
+                translateY(-3px);
+
+            box-shadow:
+                -8px 8px 20px rgba(16, 27, 53, 0.08);
+        }
+
+
+        .dean-number {
+            color: var(--gold);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 25px;
+
+            font-weight: bold;
+        }
+
+
+        .dean img {
+            width: 120px;
+
+            height: 120px;
+
+            object-fit: cover;
+
+            border-radius: 6px;
+
+            box-shadow:
+                6px 7px 0 var(--gold),
+                0 12px 20px rgba(16, 27, 53, 0.15);
+
+            transition: 0.35s;
+        }
+
+
+        .dean:hover img {
+            transform:
+                rotateY(-8deg)
+                scale(1.03);
+        }
+
+
+        .dean-department {
+            color: var(--gold);
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .dean-name {
+            color: var(--navy);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 25px;
+
+            margin: 5px 0;
+        }
+
+
+        .dean-title {
+            color: var(--gray);
+        }
+
+
+        /* =====================================================
+           CICI FACULTY
+        ===================================================== */
+
+        .ccs-section {
+            max-width: none;
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(214, 168, 79, 0.1),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0b142a,
+                    #14213d
+                );
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .ccs-content {
+            max-width: 1100px;
+
+            margin: auto;
+        }
+
+
+        .ccs-section .section-title {
+            color: white;
+
+            text-shadow:
+                0 3px 0 #080f20,
+                0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+
+        .ccs-section .section-description {
+            color: #c4cad5;
+        }
+
+
+        .faculty-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+            perspective: 1200px;
+        }
+
+
+        .faculty-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #243656,
+                    #172641
+                );
+
+            border: 1px solid rgba(255,255,255,0.1);
+
+            border-radius: 8px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 10px 0 #080f20,
+                0 20px 30px rgba(0, 0, 0, 0.3);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+
+            transform-style: preserve-3d;
+
+            position: relative;
+        }
+
+
+        .faculty-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background: var(--gold);
+
+            transform: scaleX(0);
+
+            transform-origin: left;
+
+            transition: 0.4s ease;
+
+            z-index: 2;
+        }
+
+
+        .faculty-card:hover::before {
+            transform: scaleX(1);
+        }
+
+
+        .faculty-card:hover {
+            transform:
+                translateY(-12px)
+                rotateX(4deg)
+                rotateY(-3deg);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 16px 0 #080f20,
+                0 30px 50px rgba(0, 0, 0, 0.45);
+        }
+
+
+        .faculty-card img {
+            height: 250px;
+
+            object-fit: cover;
+
+            transition: 0.5s ease;
+        }
+
+
+        .faculty-card:hover img {
+            transform: scale(1.06);
+        }
+
+
+        .faculty-info {
+            padding: 20px;
+        }
+
+
+        .faculty-role {
+            color: var(--gold-light);
+
+            font-size: 10px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .faculty-name {
+            color: white;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 21px;
+
+            margin: 5px 0;
+
+            text-shadow:
+                0 3px 5px rgba(0,0,0,0.3);
+        }
+
+
+        .faculty-position {
+            color: #b9c1ce;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================================
+           STAFF
+        ===================================================== */
+
+        .staff-section {
+            background:
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(214, 168, 79, 0.12),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #14213d,
+                    #0b142a
+                );
+
+            border-top: 1px solid rgba(214, 168, 79, 0.2);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            background: var(--navy-dark);
+
+            color: white;
+
+            padding: 45px 20px;
+
+            text-align: center;
+
+            box-shadow:
+                inset 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+
+        .footer-container {
+            max-width: 1100px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            gap: 30px;
+        }
+
+
+        .footer-brand {
+            color: var(--gold);
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 22px;
+
+            margin-bottom: 8px;
+
+            text-shadow:
+                0 3px 5px rgba(0,0,0,0.4);
+        }
+
+
+        footer p {
+            color: #929bab;
+
+            font-size: 13px;
+        }
+
+
+        .footer-right {
+            text-align: center;
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 800px) {
+
+            nav ul {
+                display: none;
+            }
+
+
+            .president {
+                grid-template-columns: 1fr;
+
+                gap: 40px;
+            }
+
+
+            .president-photo {
+                max-width: 400px;
+
+                margin: auto;
+            }
+
+
+            .president-photo img {
+                height: 400px;
+            }
+
+
+            .faculty-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+
+            .footer-container {
+                flex-direction: column;
+
+                justify-content: center;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+
+            .footer-right {
+                text-align: center;
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 550px) {
+
+            header {
+                min-height: 80vh;
+
+                padding: 70px 20px;
+            }
+
+
+            header::before {
+                width: 250px;
+                height: 250px;
+            }
+
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+
+            .hero-small {
+                font-size: 11px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .section-title {
+                font-size: 35px;
+            }
+
+
+            .president-name {
+                font-size: 38px;
+            }
+
+
+            .president-photo img {
+                height: 350px;
+            }
+
+
+            .admin-card,
+            .officer-card {
+                display: block;
+            }
+
+
+            .admin-card img,
+            .officer-card img {
+                width: 100%;
+
+                height: 220px;
+            }
+
+
+            .dean {
+                grid-template-columns: 1fr;
+
+                gap: 15px;
+
+                padding: 25px 10px;
+            }
+
+
+            .dean img {
+                width: 100%;
+
+                height: 230px;
+            }
+
+
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .faculty-card img {
+                height: 280px;
+            }
+
+
+            .footer-container {
+                width: 100%;
+
+                justify-content: center;
+
+                align-items: center;
+
+                text-align: center;
+            }
+
+
+            footer {
+                text-align: center;
+            }
+        }
+
+
+        /* =====================================================
+           ACCESSIBILITY
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+
+                animation: none !important;
+
+                transition: none !important;
+
+                transform: none !important;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+
+    <header>
+
+        <div class="hero">
+
+            <div class="hero-small">
+                ITPE3 • Web Systems Technologies
+            </div>
+
+            <h1>
+                Meet the
+                <span>Campus</span>
+                Leadership
+            </h1>
+
+            <p>
+                Get to know the university leaders,
+                administrators, academic deans,
+                and College of Informatics and Computing Innovations
+                faculty and staff.
+            </p>
+
+            <a href="#university" class="hero-button">
+                Explore Directory →
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <div class="logo">
+                CAMPUS <span>•</span> DIRECTORY
+            </div>
+
+            <ul>
+
+                <li>
+                    <a href="#university">
+                        President
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#administration">
+                        Administration
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#officer">
+                        Officer
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#deans">
+                        Deans
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#ccs">
+                        Faculty
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#staff">
+                        Staff
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- =====================================================
+         01. UNIVERSITY PRESIDENT
+    ===================================================== -->
+
+    <section id="university" class="president-section">
+
+        <div class="president">
+
+            <div class="president-photo">
+
+                <img
+                    src="president.png"
+                    alt="University President"
+                >
+
+            </div>
+
+
+            <div>
+
+                <div class="president-label">
+                    University Leadership
+                </div>
+
+                <h2 class="president-name">
+                    Dr. NORDY SIASON, JR., CESO VI
+                </h2>
+
+                <p class="president-title">
+                    University President
+                </p>
+
+                <div class="gold-line"></div>
+
+                <p class="president-message">
+                    “Leading with purpose, integrity,
+                    and a commitment to excellence
+                    in education.”
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         02. CAMPUS ADMINISTRATION
+    ===================================================== -->
+
+    <section id="administration" class="administration-section">
+
+        <div class="section-heading">
+
+            <div class="section-number">
+                Campus Level
+            </div>
+
+            <h2 class="section-title">
+                Campus Administration
+            </h2>
+
+            <p class="section-description">
+                The campus administration supports
+                the daily operations of the university
+                and its students.
+            </p>
+
+        </div>
+
+
+        <div class="admin-grid">
+
+            <article class="admin-card">
+
+                <img
+                    src="administrator.png"
+                    alt="Campus Administrator"
+                >
+
+                <div class="admin-info">
+
+                    <div class="admin-role">
+                        Campus Administrator
+                    </div>
+
+                    <h3 class="admin-name">
+                        MICHAEL B. DIZON, EdD, PhD
+                    </h3>
+
+                    <p class="admin-title">
+                        Campus Administrator
+                    </p>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         03. ADMINISTRATIVE OFFICER
+    ===================================================== -->
+
+    <section id="officer" class="officer-section">
+
+        <div class="officer-content">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    Administrative Office
+                </div>
+
+                <h2 class="section-title">
+                    Administrative Officer
+                </h2>
+
+                <p class="section-description">
+                    The administrative officer assists
+                    with campus operations, coordination,
+                    and administrative services.
+                </p>
+
+            </div>
+
+
+            <div class="officer-grid">
+
+                <article class="officer-card">
+
+                    <img
+                        src="administrative.jpg"
+                        alt="Administrative Officer"
+                    >
+
+                    <div class="officer-info">
+
+                        <div class="officer-role">
+                            Administrative Officer
+                        </div>
+
+                        <h3 class="officer-name">
+                            MELBY P. PARREÑO, MILE
+                        </h3>
+
+                        <p class="officer-title">
+                            Administrative Officer
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         04. COLLEGE DEANS
+    ===================================================== -->
+
+    <section id="deans" class="deans-section">
+
+        <div class="deans-content">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    College Level
+                </div>
+
+                <h2 class="section-title">
+                    COLLEGE DEANS
+                </h2>
+
+                <p class="section-description">
+                    Academic deans provide leadership
+                    within their respective colleges
+                    and departments.
+                </p>
+
+            </div>
+
+
+            <div class="dean-list">
+
+
+                <!-- DEAN 01 -->
+
+                <article class="dean">
+
+                    <div class="dean-number"></div>
+
+                    <img
+                        src="agri.jpg"
+                        alt="Dean of College of Agriculture"
+                    >
+
+                    <div>
+
+                        <div class="dean-department">
+                            College of Agriculture
+                        </div>
+
+                        <h3 class="dean-name">
+                            NOLI L. GERONA, PhD
+                        </h3>
+
+                        <p class="dean-title">
+                            Dean
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DEAN 02 -->
+
+                <article class="dean">
+
+                    <div class="dean-number"></div>
+
+                    <img
+                        src="cbmsd.jpg"
+                        alt="Dean of College of Business Management and Sustainable Development"
+                    >
+
+                    <div>
+
+                        <div class="dean-department">
+                            College of Business, Management and Sustainable Development
+                        </div>
+
+                        <h3 class="dean-name">
+                            JANICE H. CHING, DDM-ET
+                        </h3>
+
+                        <p class="dean-title">
+                            Dean
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DEAN 03 -->
+
+                <article class="dean">
+
+                    <div class="dean-number"></div>
+
+                    <img
+                        src="coed.jpg"
+                        alt="Dean of College of Education"
+                    >
+
+                    <div>
+
+                        <div class="dean-department">
+                            College of Education
+                        </div>
+
+                        <h3 class="dean-name">
+                            RENE T. ESTOMO, PhD
+                        </h3>
+
+                        <p class="dean-title">
+                            Dean
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- DEAN 04 -->
+
+                <article class="dean">
+
+                    <div class="dean-number"></div>
+
+                    <img
+                        src="cici.jpg"
+                        alt="Dean of College of Informatics and Computing Innovations"
+                    >
+
+                    <div>
+
+                        <div class="dean-department">
+                            College of Informatics and Computing Innovations
+                        </div>
+
+                        <h3 class="dean-name">
+                            DR. WENDA D. PANES, EdD
+                        </h3>
+
+                        <p class="dean-title">
+                            Dean
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         05. CICI FACULTY
+    ===================================================== -->
+
+    <section id="ccs" class="ccs-section">
+
+        <div class="ccs-content">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    05 / College of Informatics and Computing Innovations
+                </div>
+
+                <h2 class="section-title">
+                    CICI Faculty
+                </h2>
+
+                <p class="section-description">
+                    Meet the faculty members of the College
+                    of Informatics and Computing Innovations
+                    who contribute to teaching, mentoring,
+                    and student success.
+                </p>
+
+            </div>
+
+
+            <div class="faculty-grid">
+
+
+                <!-- FACULTY 01 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="alingalan.jpg"
+                        alt="Analiza Alingalan"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            ANALIZA ALINGALAN
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FACULTY 02 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="bulnes.png"
+                        alt="Weena Bulnes"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            WEENA J. BULNES
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FACULTY 03 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="dacudao.jpg"
+                        alt="Dythne Dacudao"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            DYTHNE P. DACUDAO
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FACULTY 04 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="tagacay.jpg"
+                        alt="Allan Dave Tagacay"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            ALLAN DAVE TAGACAY
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FACULTY 05 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="sugatan.png"
+                        alt="Ian Sugatan"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            IAN P. SUGATAN
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- FACULTY 06 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="silvestre.jpg"
+                        alt="Ivan Silvestre"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Faculty
+                        </div>
+
+                        <h3 class="faculty-name">
+                            IVAN SILVESTRE
+                        </h3>
+
+                        <p class="faculty-position">
+                            Faculty Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         06. CICI STAFF
+    ===================================================== -->
+
+    <section id="staff" class="ccs-section staff-section">
+
+        <div class="ccs-content">
+
+            <div class="section-heading">
+
+                <div class="section-number">
+                    College of Informatics and Computing Innovations
+                </div>
+
+                <h2 class="section-title">
+                    CICI Staff
+                </h2>
+
+                <p class="section-description">
+                    Meet the staff members who support
+                    the College of Informatics and Computing
+                    Innovations and help ensure smooth
+                    academic and administrative operations.
+                </p>
+
+            </div>
+
+
+            <div class="faculty-grid">
+
+
+                <!-- STAFF 01 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="delossantos.png"
+                        alt="Andrea De Los Santos"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Staff
+                        </div>
+
+                        <h3 class="faculty-name">
+                            ANDREA DE LOS SANTOS
+                        </h3>
+
+                        <p class="faculty-position">
+                            Staff Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- STAFF 02 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="borcillo.jpg"
+                        alt="Jay Michael Borcillo"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Staff
+                        </div>
+
+                        <h3 class="faculty-name">
+                            JAY MICHAEL O. BORCILLO
+                        </h3>
+
+                        <p class="faculty-position">
+                            Staff Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+                <!-- STAFF 03 -->
+
+                <article class="faculty-card">
+
+                    <img
+                        src="padernal.jpg"
+                        alt="Dwayne Padernal"
+                    >
+
+                    <div class="faculty-info">
+
+                        <div class="faculty-role">
+                            Staff
+                        </div>
+
+                        <h3 class="faculty-name">
+                            DWAYNE PADERNAL
+                        </h3>
+
+                        <p class="faculty-position">
+                            Staff Member
+                        </p>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+            <div>
+
+                <div class="footer-brand">
+                    CAMPUS LEADERSHIP
+                </div>
+
+                <p>
+                    ITPE3 – Web Systems Technologies
+                </p>
+
+                <p>
+                    1st Semester, AY 2026–2027
+                </p>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
