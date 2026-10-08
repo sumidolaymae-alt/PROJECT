@@ -1,0 +1,2590 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <title>USCAKWE | Activities</title>
+ 
+    <style>
+ 
+        /* =====================================================
+           COLOR SYSTEM
+        ===================================================== */
+ 
+        :root {
+            --navy: #101b35;
+            --navy-light: #1d2d4d;
+            --navy-dark: #080f20;
+ 
+            --gold: #d6a84f;
+            --gold-light: #f1d28a;
+ 
+            --cream: #f7f5ef;
+            --white: #ffffff;
+ 
+            --text: #303746;
+            --gray: #777f8c;
+            --border: #e3dfd5;
+ 
+            --shadow:
+                0 15px 35px rgba(16, 27, 53, 0.15);
+ 
+            --shadow-heavy:
+                0 25px 50px rgba(16, 27, 53, 0.25);
+        }
+ 
+ 
+        /* =====================================================
+           RESET
+        ===================================================== */
+ 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        html {
+            scroll-behavior: smooth;
+        }
+ 
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+        }
+ 
+        img {
+            width: 100%;
+            display: block;
+        }
+ 
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+ 
+ 
+        /* =====================================================
+           HERO
+        ===================================================== */
+ 
+        header {
+            min-height: 90vh;
+ 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+ 
+            text-align: center;
+ 
+            background:
+                radial-gradient(
+                    circle at 20% 20%,
+                    rgba(214, 168, 79, 0.18),
+                    transparent 25%
+                ),
+                radial-gradient(
+                    circle at 80% 70%,
+                    rgba(48, 77, 120, 0.45),
+                    transparent 30%
+                ),
+                linear-gradient(
+                    135deg,
+                    #080f20,
+                    #14213d 50%,
+                    #1d2d4d
+                );
+ 
+            color: white;
+ 
+            position: relative;
+            overflow: hidden;
+ 
+            perspective: 1000px;
+        }
+ 
+ 
+        header::before {
+            content: "";
+ 
+            position: absolute;
+ 
+            width: 380px;
+            height: 380px;
+ 
+            right: -130px;
+            top: -100px;
+ 
+            border-radius: 50%;
+ 
+            border: 2px solid rgba(214, 168, 79, 0.25);
+ 
+            box-shadow:
+                0 0 50px rgba(214, 168, 79, 0.08),
+                inset 0 0 50px rgba(214, 168, 79, 0.05);
+ 
+            transform:
+                rotateX(55deg)
+                rotateY(20deg);
+ 
+            animation: floatingCircle 8s ease-in-out infinite;
+        }
+ 
+ 
+        header::after {
+            content: "";
+ 
+            position: absolute;
+ 
+            width: 190px;
+            height: 190px;
+ 
+            left: -70px;
+            bottom: -50px;
+ 
+            border-radius: 50%;
+ 
+            background: rgba(214, 168, 79, 0.08);
+ 
+            border: 1px solid rgba(214, 168, 79, 0.3);
+ 
+            box-shadow:
+                20px 20px 50px rgba(0, 0, 0, 0.25);
+ 
+            transform: rotateY(45deg);
+ 
+            animation: floatingCircle2 7s ease-in-out infinite;
+        }
+ 
+ 
+        @keyframes floatingCircle {
+ 
+            0%,
+            100% {
+                transform:
+                    rotateX(55deg)
+                    rotateY(20deg)
+                    translateY(0);
+            }
+ 
+            50% {
+                transform:
+                    rotateX(55deg)
+                    rotateY(20deg)
+                    translateY(20px);
+            }
+        }
+ 
+ 
+        @keyframes floatingCircle2 {
+ 
+            0%,
+            100% {
+                transform:
+                    rotateY(45deg)
+                    translateY(0);
+            }
+ 
+            50% {
+                transform:
+                    rotateY(45deg)
+                    translateY(-15px);
+            }
+        }
+ 
+ 
+        .hero {
+            max-width: 850px;
+ 
+            padding: 40px 20px;
+ 
+            position: relative;
+            z-index: 2;
+ 
+            transform: translateZ(40px);
+ 
+            animation: heroAppear 1s ease;
+        }
+ 
+ 
+        @keyframes heroAppear {
+ 
+            from {
+                opacity: 0;
+ 
+                transform:
+                    translateZ(40px)
+                    translateY(30px);
+            }
+ 
+            to {
+                opacity: 1;
+ 
+                transform:
+                    translateZ(40px)
+                    translateY(0);
+            }
+        }
+ 
+ 
+        .hero-small {
+            color: var(--gold-light);
+ 
+            font-size: 13px;
+ 
+            font-weight: bold;
+ 
+            letter-spacing: 3px;
+ 
+            margin-bottom: 18px;
+        }
+ 
+ 
+        .hero h1 {
+            font-family: Georgia, "Times New Roman", serif;
+ 
+            font-size: clamp(45px, 7vw, 78px);
+ 
+            line-height: 1.05;
+ 
+            margin-bottom: 25px;
+ 
+            text-shadow:
+                0 5px 0 rgba(0, 0, 0, 0.15),
+                0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+ 
+ 
+        .hero h1 span {
+            color: var(--gold);
+ 
+            text-shadow:
+                0 3px 0 #9e762b,
+                0 10px 25px rgba(214, 168, 79, 0.25);
+        }
+ 
+ 
+        .hero p {
+            max-width: 650px;
+ 
+            margin: auto;
+ 
+            color: #d4d9e3;
+ 
+            font-size: 16px;
+        }
+ 
+ 
+        /* =====================================================
+           HERO BUTTON
+        ===================================================== */
+ 
+        .hero-button {
+            display: inline-block;
+ 
+            margin-top: 32px;
+ 
+            padding: 14px 25px;
+ 
+            color: var(--navy);
+ 
+            background: var(--gold);
+ 
+            font-weight: bold;
+ 
+            border-radius: 4px;
+ 
+            box-shadow:
+                0 6px 0 #9f782e,
+                0 15px 25px rgba(0, 0, 0, 0.25);
+ 
+            transition: 0.25s ease;
+        }
+ 
+ 
+        .hero-button:hover {
+            transform: translateY(-5px);
+ 
+            box-shadow:
+                0 11px 0 #9f782e,
+                0 22px 35px rgba(0, 0, 0, 0.3);
+        }
+ 
+ 
+        .hero-button:active {
+            transform: translateY(2px);
+ 
+            box-shadow:
+                0 3px 0 #9f782e,
+                0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+ 
+ 
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+ 
+        nav {
+            background: rgba(255, 255, 255, 0.97);
+ 
+            border-bottom: 1px solid var(--border);
+ 
+            position: sticky;
+ 
+            top: 0;
+ 
+            z-index: 100;
+ 
+            box-shadow:
+                0 5px 20px rgba(16, 27, 53, 0.08);
+        }
+ 
+ 
+        .nav-container {
+            max-width: 1100px;
+ 
+            margin: auto;
+ 
+            padding: 18px 20px;
+ 
+            display: flex;
+ 
+            justify-content: space-between;
+ 
+            align-items: center;
+        }
+ 
+ 
+        .logo {
+            font-family: Georgia, "Times New Roman", serif;
+ 
+            font-weight: bold;
+ 
+            color: var(--navy);
+ 
+            text-shadow:
+                1px 2px 0 #ddd;
+        }
+ 
+ 
+        .logo span {
+            color: var(--gold);
+        }
+ 
+ 
+        nav ul {
+            list-style: none;
+ 
+            display: flex;
+ 
+            gap: 25px;
+        }
+ 
+ 
+        nav a {
+            font-size: 13px;
+ 
+            font-weight: bold;
+ 
+            color: #555;
+ 
+            transition: 0.3s;
+ 
+            position: relative;
+        }
+ 
+ 
+        nav a::after {
+            content: "";
+ 
+            position: absolute;
+ 
+            left: 0;
+            bottom: -7px;
+ 
+            width: 0;
+            height: 2px;
+ 
+            background: var(--gold);
+ 
+            transition: 0.3s;
+        }
+ 
+ 
+        nav a:hover {
+            color: var(--gold);
+ 
+            text-shadow:
+                0 3px 8px rgba(214, 168, 79, 0.3);
+        }
+ 
+ 
+        nav a:hover::after {
+            width: 100%;
+        }
+ 
+ 
+        /* =====================================================
+           GENERAL SECTIONS
+        ===================================================== */
+ 
+        section {
+            max-width: 1100px;
+ 
+            margin: auto;
+ 
+            padding: 80px 20px;
+        }
+ 
+ 
+        .section-heading {
+            margin-bottom: 40px;
+        }
+ 
+ 
+        .section-number {
+            color: var(--gold);
+ 
+            font-size: 12px;
+ 
+            font-weight: bold;
+ 
+            letter-spacing: 3px;
+        }
+ 
+ 
+        .section-title {
+            font-family: Georgia, "Times New Roman", serif;
+ 
+            color: var(--navy);
+ 
+            font-size: 42px;
+ 
+            margin: 6px 0 12px;
+ 
+            text-shadow:
+                0 2px 0 #ddd,
+                0 5px 10px rgba(16, 27, 53, 0.08);
+        }
+ 
+ 
+        .section-description {
+            max-width: 650px;
+ 
+            color: var(--gray);
+        }
+ 
+ 
+        /* =====================================================
+           CICI FACULTY
+        ===================================================== */
+ 
+        .ccs-section {
+            max-width: none;
+ 
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(214, 168, 79, 0.1),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #0b142a,
+                    #14213d
+                );
+ 
+            color: white;
+ 
+            position: relative;
+ 
+            overflow: hidden;
+        }
+ 
+ 
+        .ccs-content {
+            max-width: 1100px;
+ 
+            margin: auto;
+        }
+ 
+ 
+        .ccs-section .section-title {
+            color: white;
+ 
+            text-shadow:
+                0 3px 0 #080f20,
+                0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+ 
+ 
+        .ccs-section .section-description {
+            color: #c4cad5;
+        }
+ 
+ 
+        .faculty-grid {
+            display: grid;
+ 
+            grid-template-columns: repeat(3, 1fr);
+ 
+            gap: 25px;
+ 
+            perspective: 1200px;
+        }
+ 
+ 
+        .faculty-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #243656,
+                    #172641
+                );
+ 
+            border: 1px solid rgba(255,255,255,0.1);
+ 
+            border-radius: 8px;
+ 
+            overflow: hidden;
+ 
+            box-shadow:
+                0 10px 0 #080f20,
+                0 20px 30px rgba(0, 0, 0, 0.3);
+ 
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+ 
+            transform-style: preserve-3d;
+ 
+            position: relative;
+        }
+ 
+ 
+        .faculty-card::before {
+            content: "";
+ 
+            position: absolute;
+ 
+            top: 0;
+            left: 0;
+ 
+            width: 100%;
+            height: 4px;
+ 
+            background: var(--gold);
+ 
+            transform: scaleX(0);
+ 
+            transform-origin: left;
+ 
+            transition: 0.4s ease;
+ 
+            z-index: 2;
+        }
+ 
+ 
+        .faculty-card:hover::before {
+            transform: scaleX(1);
+        }
+ 
+ 
+        .faculty-card:hover {
+            transform:
+                translateY(-12px)
+                rotateX(4deg)
+                rotateY(-3deg);
+ 
+            border-color: var(--gold);
+ 
+            box-shadow:
+                0 16px 0 #080f20,
+                0 30px 50px rgba(0, 0, 0, 0.45);
+        }
+ 
+ 
+        .faculty-card img {
+            height: 250px;
+ 
+            object-fit: cover;
+ 
+            transition: 0.5s ease;
+        }
+ 
+ 
+        .faculty-card:hover img {
+            transform: scale(1.06);
+        }
+ 
+ 
+        .faculty-info {
+            padding: 20px;
+        }
+ 
+ 
+        .faculty-role {
+            color: var(--gold-light);
+ 
+            font-size: 10px;
+ 
+            font-weight: bold;
+ 
+            letter-spacing: 2px;
+ 
+            text-transform: uppercase;
+        }
+ 
+ 
+        .faculty-name {
+            color: white;
+ 
+            font-family: Georgia, "Times New Roman", serif;
+ 
+            font-size: 21px;
+ 
+            margin: 5px 0;
+ 
+            text-shadow:
+                0 3px 5px rgba(0,0,0,0.3);
+        }
+ 
+ 
+        .faculty-position {
+            color: #b9c1ce;
+ 
+            font-size: 14px;
+        }
+ 
+ 
+        /* =====================================================
+           STAFF (used for Day 2 background)
+        ===================================================== */
+ 
+        .staff-section {
+            background:
+                radial-gradient(
+                    circle at 90% 80%,
+                    rgba(214, 168, 79, 0.12),
+                    transparent 25%
+                ),
+                linear-gradient(
+                    135deg,
+                    #14213d,
+                    #0b142a
+                );
+ 
+            border-top: 1px solid rgba(214, 168, 79, 0.2);
+        }
+ 
+ 
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+ 
+        footer {
+            background: var(--navy-dark);
+ 
+            color: white;
+ 
+            padding: 45px 20px;
+ 
+            text-align: center;
+ 
+            box-shadow:
+                inset 0 10px 25px rgba(0,0,0,0.2);
+        }
+ 
+ 
+        .footer-container {
+            max-width: 1100px;
+ 
+            margin: auto;
+ 
+            display: flex;
+ 
+            justify-content: center;
+ 
+            align-items: center;
+ 
+            text-align: center;
+ 
+            gap: 30px;
+        }
+ 
+ 
+        .footer-brand {
+            color: var(--gold);
+ 
+            font-family: Georgia, "Times New Roman", serif;
+ 
+            font-size: 22px;
+ 
+            margin-bottom: 8px;
+ 
+            text-shadow:
+                0 3px 5px rgba(0,0,0,0.4);
+        }
+ 
+ 
+        footer p {
+            color: #929bab;
+ 
+            font-size: 13px;
+        }
+ 
+ 
+        .footer-right {
+            text-align: center;
+        }
+ 
+ 
+        /* =====================================================
+           ACCESSIBILITY
+        ===================================================== */
+ 
+        @media (prefers-reduced-motion: reduce) {
+ 
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+ 
+                animation: none !important;
+ 
+                transition: none !important;
+ 
+                transform: none !important;
+            }
+        }
+ 
+ 
+ 
+        /* =====================================================
+           PAGE SETTINGS (USCAKWE)
+        ===================================================== */
+ 
+        header {
+            min-height: 70vh;
+        }
+ 
+ 
+        /* =====================================================
+           DAY SWITCHING
+           Only the section with the class "active" is shown
+        ===================================================== */
+ 
+        .day-section {
+            display: none;
+        }
+ 
+ 
+        .day-section.active {
+            display: block;
+ 
+            animation: dayAppear 0.5s ease;
+        }
+ 
+ 
+        @keyframes dayAppear {
+ 
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+ 
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+ 
+ 
+        nav a.active {
+            color: var(--gold);
+        }
+ 
+ 
+        nav a.active::after {
+            width: 100%;
+        }
+ 
+ 
+        /* =====================================================
+           ACTIVITY PHOTOS (10 pictures per activity)
+        ===================================================== */
+ 
+        .photos {
+            display: grid;
+ 
+            grid-template-columns: 1fr 1fr;
+ 
+            gap: 4px;
+        }
+ 
+ 
+        .photo {
+            position: relative;
+ 
+            display: block;
+ 
+            aspect-ratio: 4 / 3;
+ 
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b142a,
+                    #1d2d4d
+                );
+ 
+            overflow: hidden;
+ 
+            cursor: pointer;
+        }
+ 
+ 
+        .photos .photo:first-child {
+            grid-column: 1 / -1;
+ 
+            aspect-ratio: 16 / 9;
+        }
+ 
+ 
+        .photo img {
+            width: 100%;
+ 
+            height: 100%;
+ 
+            object-fit: cover;
+        }
+ 
+ 
+        .photo .placeholder {
+            position: absolute;
+ 
+            inset: 0;
+ 
+            display: flex;
+ 
+            flex-direction: column;
+ 
+            align-items: center;
+ 
+            justify-content: center;
+ 
+            gap: 6px;
+ 
+            margin: 10px;
+ 
+            padding: 10px;
+ 
+            border: 2px dashed rgba(214, 168, 79, 0.5);
+ 
+            border-radius: 6px;
+ 
+            color: var(--gold-light);
+ 
+            font-size: 12px;
+ 
+            text-align: center;
+        }
+ 
+ 
+        .photo .placeholder strong {
+            font-size: 28px;
+ 
+            line-height: 1;
+        }
+ 
+ 
+        .photo.has-image .placeholder {
+            display: none;
+        }
+ 
+ 
+        .photo input {
+            display: none;
+        }
+ 
+ 
+        /* =====================================================
+           ACTIVITY DESCRIPTION
+        ===================================================== */
+ 
+        .activity-description {
+            color: #b9c1ce;
+ 
+            font-size: 14px;
+ 
+            margin-top: 8px;
+        }
+ 
+ 
+        .activity-description:focus {
+            outline: 2px dashed var(--gold);
+ 
+            outline-offset: 4px;
+        }
+ 
+ 
+        /* =====================================================
+           BIGGER PICTURES
+           One activity per row, so every picture is large.
+           To make them even bigger, increase max-width below.
+        ===================================================== */
+ 
+        .faculty-grid {
+            grid-template-columns: 1fr;
+ 
+            max-width: 1100px;
+ 
+            margin: auto;
+ 
+            gap: 50px;
+        }
+ 
+ 
+        .photos {
+            gap: 6px;
+        }
+ 
+ 
+        .faculty-card:hover {
+            transform: translateY(-8px);
+        }
+ 
+ 
+        .photo .placeholder {
+            font-size: 15px;
+        }
+ 
+ 
+        .photo .placeholder strong {
+            font-size: 40px;
+        }
+ 
+ 
+        .faculty-name {
+            font-size: 28px;
+        }
+ 
+ 
+        .activity-description {
+            font-size: 16px;
+        }
+ 
+ 
+        /* =====================================================
+           PICTURE SIZE (10 pictures per activity)
+           5 small pictures per row, all the same size.
+           Change 5 to 4 for bigger, or 6 for smaller pictures.
+        ===================================================== */
+ 
+        .photos {
+            grid-template-columns: repeat(5, 1fr);
+ 
+            gap: 6px;
+        }
+ 
+ 
+        .photos .photo,
+        .photos .photo:first-child {
+            grid-column: auto;
+ 
+            aspect-ratio: 4 / 3;
+        }
+ 
+ 
+        .photos .photo .placeholder {
+            font-size: 11px;
+ 
+            margin: 5px;
+ 
+            padding: 4px;
+ 
+            gap: 3px;
+ 
+            word-break: break-all;
+        }
+ 
+ 
+        .photos .photo .placeholder strong {
+            font-size: 22px;
+        }
+ 
+ 
+        /* =====================================================
+           DAY VIDEO (1 video for each day)
+           The video is big: it uses the full width of the page.
+        ===================================================== */
+ 
+        .day-video {
+            max-width: 1100px;
+ 
+            margin: 0 auto 60px;
+        }
+ 
+ 
+        .day-video-title {
+            color: var(--gold-light);
+ 
+            font-size: 12px;
+ 
+            font-weight: bold;
+ 
+            letter-spacing: 3px;
+ 
+            text-transform: uppercase;
+ 
+            margin-bottom: 12px;
+        }
+ 
+ 
+        .video-box {
+            position: relative;
+ 
+            aspect-ratio: 16 / 9;
+ 
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b142a,
+                    #1d2d4d
+                );
+ 
+            border: 1px solid rgba(255, 255, 255, 0.1);
+ 
+            border-radius: 8px;
+ 
+            overflow: hidden;
+ 
+            box-shadow:
+                0 10px 0 #080f20,
+                0 20px 30px rgba(0, 0, 0, 0.3);
+        }
+ 
+ 
+        .video-box video {
+            display: none;
+ 
+            width: 100%;
+ 
+            height: 100%;
+ 
+            background: #000;
+ 
+            object-fit: contain;
+        }
+ 
+ 
+        .video-box.has-video video {
+            display: block;
+        }
+ 
+ 
+        .video-placeholder {
+            position: absolute;
+ 
+            inset: 0;
+ 
+            display: flex;
+ 
+            flex-direction: column;
+ 
+            align-items: center;
+ 
+            justify-content: center;
+ 
+            gap: 8px;
+ 
+            margin: 14px;
+ 
+            border: 2px dashed rgba(214, 168, 79, 0.5);
+ 
+            border-radius: 6px;
+ 
+            color: var(--gold-light);
+ 
+            font-size: 16px;
+ 
+            text-align: center;
+        }
+ 
+ 
+        .video-placeholder strong {
+            font-size: 56px;
+ 
+            line-height: 1;
+        }
+ 
+ 
+        .video-box.has-video .video-placeholder {
+            display: none;
+        }
+ 
+ 
+        .video-choose {
+            display: inline-block;
+ 
+            margin-top: 22px;
+ 
+            padding: 10px 18px;
+ 
+            color: var(--navy);
+ 
+            background: var(--gold);
+ 
+            font-size: 13px;
+ 
+            font-weight: bold;
+ 
+            border-radius: 4px;
+ 
+            cursor: pointer;
+ 
+            box-shadow: 0 4px 0 #9f782e;
+        }
+ 
+ 
+        .video-choose input {
+            display: none;
+        }
+ 
+ 
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+ 
+        @media (max-width: 800px) {
+ 
+            .faculty-grid {
+                grid-template-columns: 1fr;
+            }
+ 
+            .photos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+ 
+            .footer-container {
+                flex-direction: column;
+            }
+        }
+ 
+ 
+        @media (max-width: 550px) {
+ 
+            header {
+                padding: 70px 20px;
+            }
+ 
+            .hero h1 {
+                font-size: 45px;
+            }
+ 
+            .hero-small {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+ 
+            .section-title {
+                font-size: 35px;
+            }
+ 
+            nav ul {
+                gap: 15px;
+            }
+ 
+            .logo {
+                display: none;
+            }
+ 
+            .nav-container {
+                justify-content: center;
+            }
+        }
+ 
+    </style>
+</head>
+ 
+ 
+<body>
+ 
+ 
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+ 
+    <header>
+ 
+        <div class="hero">
+ 
+            <h1>
+                US<span>CAKWE</span>
+            </h1>
+ 
+            <p>
+                Two days of celebration, culture, and unity.
+                Choose a day below to see its activities,
+                pictures, and descriptions.
+            </p>
+ 
+        </div>
+ 
+    </header>
+ 
+ 
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
+ 
+    <nav>
+ 
+        <div class="nav-container">
+ 
+            <div class="logo">
+                USCAKWE <span>•</span> ACTIVITIES
+            </div>
+ 
+            <ul>
+ 
+                <li>
+                    <a href="index.html">
+                        Home
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="#day1" data-day="day1" class="active">
+                        Day 1
+                    </a>
+                </li>
+ 
+                <li>
+                    <a href="#day2" data-day="day2">
+                        Day 2
+                    </a>
+                </li>
+ 
+            </ul>
+ 
+        </div>
+ 
+    </nav>
+ 
+ 
+    <!-- =====================================================
+         DAY 1 — SEPTEMBER 17, 2026
+         Pictures: put the image files in the same folder
+         (example: parade-1.jpg ... parade-10.jpg)
+         Description: edit the text inside activity-description
+    ===================================================== -->
+ 
+    <section id="day1" class="ccs-section day-section active">
+ 
+        <div class="ccs-content">
+ 
+            <div class="section-heading">
+ 
+                <div class="section-number">
+                    DAY 1
+                </div>
+ 
+                <h2 class="section-title">
+                    September 17, 2026
+                </h2>
+ 
+                <p class="section-description">
+                  Parade, dances, demonstrations, team spirit, and exciting activities kick off the celebration. Students come together to showcase their talents, creativity, unity, and school pride while enjoying a fun-filled and memorable AKWE experience.
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- DAY 1 VIDEO
+                 Put the video in the same folder and name it day1.mp4
+                 (or change the src below) -->
+ 
+            <div class="day-video">
+ 
+                <div class="day-video-title">
+                    Day 1 Video
+                </div>
+ 
+                <div class="video-box">
+ 
+                    <video
+                        src="day1.mp4"
+                        controls
+                        preload="metadata"
+                        onloadeddata="this.parentElement.classList.add('has-video')"
+                        onerror="this.parentElement.classList.remove('has-video')"
+                    ></video>
+ 
+                    <div class="video-placeholder">
+                        <strong>▶</strong>
+                        Add Day 1 video
+                        <span>(day1.mp4)</span>
+                    </div>
+ 
+                </div>
+ 
+ 
+            </div>
+ 
+ 
+            <div class="faculty-grid">
+ 
+ 
+                <!-- PARADE -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="parade1.jpg"
+                                alt="Parade 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(parade-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="parade2.jpg"
+                                alt="Parade 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(parade-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="parade3.jpg"
+                                alt="Parade 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(parade-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="parade4.jpg"
+                                alt="Parade 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(parade-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="parade5.jpg"
+                                alt="Parade 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(parade-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                       
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 1
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Parade
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                           The parade is one of the highlights of AKWE, bringing students together to showcase their school spirit, creativity, and unity. Participants proudly represent their teams through colorful outfits, banners, chants, and lively performances as they march around the campus. It creates an exciting atmosphere and officially sets the energy for the celebration.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+                <!-- STREET DANCE -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="streetdance1.jpg"
+                                alt="Street Dance 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(street-dance-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="streetdance2.jpg"
+                                alt="Street Dance 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(street-dance-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="streetdance3.jpg"
+                                alt="Street Dance 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(street-dance-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="streetdance4.jpg"
+                                alt="Street Dance 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(street-dance-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="streetdance5.jpg"
+                                alt="Street Dance 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(street-dance-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                       
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 1
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Street Dance
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                           The Street Dance is a lively and energetic AKWE activity where students showcase their creativity, talent, and teamwork through dance. Each team performs a fun and exciting routine while representing their group with confidence and school spirit. It brings everyone together through music, movement, and friendly competition.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+                <!-- UNITY DANCE FIELD DEMONSTRATION -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="unity1.jpg"
+                                alt="Unity Dance Field Demonstration 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(unity-dance-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="unity2.jpg"
+                                alt="Unity Dance Field Demonstration 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(unity-dance-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="unity3.jpg"
+                                alt="Unity Dance Field Demonstration 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(unity-dance-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="unity4.jpg"
+                                alt="Unity Dance Field Demonstration 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(unity-dance-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="unity5.jpg"
+                                alt="Unity Dance Field Demonstration 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(unity-dance-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 1
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Unity Dance Field Demonstration
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                            The Unity Dance Field Demonstration brings students together in a coordinated performance that highlights unity, teamwork, and school spirit. Participants perform synchronized movements and formations across the field, creating an energetic and colorful presentation. It is a celebration of cooperation, friendship, and the strong bond shared by the AKWE community.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+                <!-- TEAM BUILDING -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="team1.jpg"
+                                alt="Team Building 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(team-building-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="team2.jpg"
+                                alt="Team Building 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(team-building-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="team3.jpg"
+                                alt="Team Building 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(team-building-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="team4.jpg"
+                                alt="Team Building 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(team-building-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="team5.jpg"
+                                alt="Team Building 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(team-building-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                      
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 1
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Team Building
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                           Team Building activities bring students together through fun and challenging games that encourage cooperation, communication, and trust. Participants work as a team, support one another, and build stronger friendships while enjoying exciting activities. It promotes unity, teamwork, and camaraderie among the AKWE participants.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+                <!-- AWARDING -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="awarding1.jpg"
+                                alt="Awarding 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(awarding-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="awarding2.jpg"
+                                alt="Awarding 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(awarding-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="awarding3.jpg"
+                                alt="Awarding 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(awarding-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="awarding4.jpg"
+                                alt="Awarding 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(awarding-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="awarding5.jpg"
+                                alt="Awarding 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(awarding-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                       
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 1
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Awarding
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                            The Awarding Ceremony was a proud and memorable moment for the College of Informatics and Computing Innovations (CICI). CICI proudly secured 1st Place in the Street Dance Competition and became the Champion in the Field Demonstration. These achievements reflect the dedication, teamwork, creativity, and school spirit of the students who worked together to represent CICI with pride.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- =====================================================
+         DAY 2 — SEPTEMBER 18, 2026
+    ===================================================== -->
+ 
+    <section id="day2" class="ccs-section staff-section day-section">
+ 
+        <div class="ccs-content">
+ 
+            <div class="section-heading">
+ 
+                <div class="section-number">
+                    DAY 2
+                </div>
+ 
+                <h2 class="section-title">
+                    September 18, 2026
+                </h2>
+ 
+                <p class="section-description">
+                    Celebrating diversity, pride,
+                    and the colors of unity.
+                </p>
+ 
+            </div>
+ 
+ 
+            <!-- DAY 2 VIDEO
+                 Put the video in the same folder and name it day2.mp4
+                 (or change the src below) -->
+ 
+            <div class="day-video">
+ 
+                <div class="day-video-title">
+                    Day 2 Video
+                </div>
+ 
+                <div class="video-box">
+ 
+                    <video
+                        src="day2.mp4"
+                        controls
+                        preload="metadata"
+                        onloadeddata="this.parentElement.classList.add('has-video')"
+                        onerror="this.parentElement.classList.remove('has-video')"
+                    ></video>
+ 
+                    <div class="video-placeholder">
+                        <strong>▶</strong>
+                        Add Day 2 video
+                        <span>(day2.mp4)</span>
+                    </div>
+ 
+                </div>
+ 
+               
+ 
+            </div>
+ 
+ 
+            <div class="faculty-grid">
+ 
+ 
+                <!-- MR. &AMP; MS. COLORS OF UNITY -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity1.jpg"
+                                alt="Mr. and Ms. Colors of Unity 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(mr-ms-colors-of-unity-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity2.jpg"
+                                alt="Mr. and Ms. Colors of Unity 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(mr-ms-colors-of-unity-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity3.jpg"
+                                alt="Mr. and Ms. Colors of Unity 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(mr-ms-colors-of-unity-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity4.jpg"
+                                alt="Mr. and Ms. Colors of Unity 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(mr-ms-colors-of-unity-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity5.jpg"
+                                alt="Mr. and Ms. Colors of Unity 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(mr-ms-colors-of-unity-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity6.jpg"
+                                alt="Mr. and Ms. Colors of Unity 6"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 6
+                                <span>(mr-ms-colors-of-unity-6.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity7.jpg"
+                                alt="Mr. and Ms. Colors of Unity 7"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 7
+                                <span>(mr-ms-colors-of-unity-7.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity8.jpg"
+                                alt="Mr. and Ms. Colors of Unity 8"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 8
+                                <span>(mr-ms-colors-of-unity-8.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity9.jpg"
+                                alt="Mr. and Ms. Colors of Unity 9"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 9
+                                <span>(mr-ms-colors-of-unity-9.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="colorsunity10.jpg"
+                                alt="Mr. and Ms. Colors of Unity 10"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 10
+                                <span>(mr-ms-colors-of-unity-10.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 2
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            Mr. &amp; Ms. Colors of Unity
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                            CICI also celebrated the achievements of its representatives in Mr. & Ms. Colors of Unity, with Dhea Daboror winning 2nd Place and Kian Jaruda securing 3rd Place. These accomplishments showcase the talent, dedication, confidence, teamwork, and school spirit of the CICI community.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+                <!-- LGBTQIA+ -->
+ 
+                <article class="faculty-card">
+ 
+                    <div class="photos">
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg1.jpg"
+                                alt="LGBTQIA+ 1"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 1
+                                <span>(lgbtqia-1.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg2.jpg"
+                                alt="LGBTQIA+ 2"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 2
+                                <span>(lgbtqia-2.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg3.jpg"
+                                alt="LGBTQIA+ 3"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 3
+                                <span>(lgbtqia-3.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg4.jpg"
+                                alt="LGBTQIA+ 4"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 4
+                                <span>(lgbtqia-4.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg5.jpg"
+                                alt="LGBTQIA+ 5"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 5
+                                <span>(lgbtqia-5.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg6.jpg"
+                                alt="LGBTQIA+ 6"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 6
+                                <span>(lgbtqia-6.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg7.jpg"
+                                alt="LGBTQIA+ 7"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 7
+                                <span>(lgbtqia-7.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg8.jpg"
+                                alt="LGBTQIA+ 8"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 8
+                                <span>(lgbtqia-8.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg9.jpg"
+                                alt="LGBTQIA+ 9"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 9
+                                <span>(lgbtqia-9.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                        <label class="photo">
+ 
+                            <img
+                                src="lg10.jpg"
+                                alt="LGBTQIA+ 10"
+                                onerror="this.style.display='none'"
+                                onload="this.parentElement.classList.add('has-image')"
+                            >
+ 
+                            <div class="placeholder">
+                                <strong>+</strong>
+                                Add picture 10
+                                <span>(lgbtqia-10.jpg)</span>
+                            </div>
+ 
+                            <input type="file" accept="image/*">
+ 
+                        </label>
+ 
+                    </div>
+ 
+                    <div class="faculty-info">
+ 
+                        <div class="faculty-role">
+                            Day 2
+                        </div>
+ 
+                        <h3 class="faculty-name">
+                            LGBTQIA+
+                        </h3>
+ 
+                        <p class="activity-description" contenteditable="true">
+                            In the LGBTQIA+ category, Prince Kirt Siaotong proudly won 3rd Place, adding another achievement to CICI’s celebration. These accomplishments reflect the talent, dedication, confidence, teamwork, and school spirit of the CICI community.
+                        </p>
+ 
+                    </div>
+ 
+                </article>
+ 
+ 
+            </div>
+ 
+        </div>
+ 
+    </section>
+ 
+ 
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+ 
+    <footer>
+ 
+        <div class="footer-container">
+ 
+            <div>
+ 
+                <div class="footer-brand">
+                    USCAKWE
+                </div>
+ 
+                  <p>
+                    ITPE3 – Web Systems Technologies
+                </p>
+
+                <p>
+                    1st Semester, AY 2026–2027
+                </p>
+            </div>
+ 
+        </div>
+ 
+    </footer>
+ 
+ 
+    <!-- =====================================================
+         SCRIPT
+    ===================================================== -->
+ 
+    <script>
+ 
+        // Show only the selected day
+        function showDay(id) {
+ 
+            document.querySelectorAll('.day-section').forEach(function (section) {
+                section.classList.toggle('active', section.id === id);
+            });
+ 
+            document.querySelectorAll('nav a[data-day]').forEach(function (link) {
+                link.classList.toggle('active', link.dataset.day === id);
+            });
+ 
+        }
+ 
+ 
+        // Day 1, Day 2 and the "View Activities" button
+        document.querySelectorAll('[data-day]').forEach(function (link) {
+ 
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+ 
+                showDay(link.dataset.day);
+ 
+                document.querySelector('nav').scrollIntoView({ behavior: 'smooth' });
+            });
+ 
+        });
+ 
+ 
+        // Open Day 2 directly if the address ends with #day2
+        if (location.hash === '#day2') {
+            showDay('day2');
+        }
+ 
+ 
+        // Click a picture box to choose a photo and preview it
+        document.querySelectorAll('.photo').forEach(function (box) {
+ 
+            var input = box.querySelector('input');
+            var img = box.querySelector('img');
+ 
+            input.addEventListener('change', function () {
+ 
+                var file = input.files[0];
+ 
+                if (!file) return;
+ 
+                img.src = URL.createObjectURL(file);
+                img.style.display = 'block';
+ 
+                box.classList.add('has-image');
+ 
+            });
+ 
+        });
+ 
+ 
+ 
+        // Choose a video to preview it (one video for each day)
+        document.querySelectorAll('.day-video').forEach(function (block) {
+ 
+            var input = block.querySelector('input');
+            var box = block.querySelector('.video-box');
+            var video = block.querySelector('video');
+ 
+            input.addEventListener('change', function () {
+ 
+                var file = input.files[0];
+ 
+                if (!file) return;
+ 
+                video.src = URL.createObjectURL(file);
+ 
+                box.classList.add('has-video');
+ 
+                video.load();
+ 
+            });
+ 
+        });
+ 
+    </script>
+ 
+ 
+</body>
+ 
+</html>
+ 
